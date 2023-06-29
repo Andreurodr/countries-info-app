@@ -3,8 +3,6 @@ import { UserdbService } from 'src/app/services/userdb.service';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { UserLogin } from 'src/app/models/user.model';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
