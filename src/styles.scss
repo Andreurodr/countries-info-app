@@ -1,0 +1,25 @@
+*{
+  font-family: raleway;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  background-color: wheat;
+}
+.back{
+  text-decoration: none;
+  color: black;
+  width: 100%;
+  background-color: orange;
+  border-radius: 5px;
+  padding: 10px;
+}
+.error-message{
+  color:crimson;
+}
+.correct-message{
+  color:darkolivegreen;
+  margin-bottom: 70px;
+}
+h1{
+  margin: 20px;
+}

@@ -1,0 +1,11 @@
+<nav class="nav">
+  <a class="nav_link" [routerLink]="['']"
+    ><img class="nav_logo" src="../../assets/globe-png-39537.png" alt="logo"
+  /></a>
+  <a class="nav_link" [routerLink]="['/countries-list']">Countries</a>
+  <a class="nav_link" [routerLink]="['/login']">Login</a>
+  <a class="nav_link" [routerLink]="['/register']">Register</a>
+  <a class="nav_link" [routerLink]="['/about']">About</a>
+  <a class="nav_link" [routerLink]="['/contact']">Contact</a>
+</nav>
+<button class="nav_button" *ngIf="loggedService.logged" (click)="logOut()">Logout {{ this.userdbService.userDbArray[0].username }}</button>

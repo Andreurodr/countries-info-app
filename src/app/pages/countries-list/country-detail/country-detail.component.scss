@@ -1,0 +1,14 @@
+.bigCard {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  &_flag {
+    border-radius: 5px;
+    margin: 10px;
+    box-shadow: 0.5px 0.5px gray;
+    width: 40%;
+  }
+}
+h2 {
+  margin: 20px;
+}

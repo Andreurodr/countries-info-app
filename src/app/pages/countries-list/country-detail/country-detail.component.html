@@ -1,0 +1,13 @@
+<article>
+  <div class="bigCard" *ngFor="let element of data">
+    <h3>Selected country results:</h3>
+    <h2>{{ element.name }}</h2>
+    <img class="bigCard_flag" [src]="element.flagImage" [alt]="element.name" />
+    <p><strong>Capital: </strong>{{ element.capital }}</p>
+    <p><strong>Region: </strong>{{ element.region }}</p>
+    <p><strong>Subregion: </strong>{{ element.subregion }}</p>
+    <p><strong>Population: </strong>{{ element.population }} hab.</p>
+    <p><strong>Area: </strong>{{ element.area }} km2</p>
+    <p><strong>Languages: </strong>{{ objectValues(element.languages) }}</p>
+  </div>
+</article>

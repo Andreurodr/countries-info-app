@@ -1,0 +1,41 @@
+<h2>Contact</h2>
+<form class="form" (ngSubmit)="sendContactForm()">
+  <fieldset class="form_fieldset">
+    <label for="name">Name</label>
+    <input
+      class="form_fieldset_input"
+      type="text"
+      id="name"
+      [(ngModel)]="name"
+      name="name"
+      required
+    />
+  </fieldset>
+  <fieldset class="form_fieldset">
+    <label for="email">Email</label>
+    <input
+      class="form_fieldset_input"
+      type="email"
+      id="email"
+      [(ngModel)]="email"
+      name="email"
+      required
+    />
+  </fieldset>
+  <fieldset class="form_fieldset">
+    <label for="message">Message</label>
+    <textarea
+      class="form_fieldset_textarea"
+      id="message"
+      [(ngModel)]="message"
+      name="message"
+      required
+    ></textarea>
+  </fieldset>
+  <button class="form_button" type="submit">Send Message</button>
+</form>
+<p *ngIf="submitted" class="correct-message">
+  Message has been sent successfully
+</p>
+
+<a class="back" [routerLink]="['..']">Return to home page</a>

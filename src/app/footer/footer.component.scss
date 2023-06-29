@@ -1,0 +1,29 @@
+* {
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+  @media (max-width: 432px) {
+    font-size: 10px;
+  }
+  background-color: black;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 150px;
+  &_link {
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    margin: auto;
+  }
+  &_p {
+    width: 100%;
+    color: white;
+    height: 100px;
+    text-align: center;
+  }
+}

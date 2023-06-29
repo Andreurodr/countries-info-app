@@ -1,0 +1,35 @@
+<app-country-detail [data]="data"></app-country-detail>
+<section class="section">
+  <input
+    type="text"
+    [(ngModel)]="filterName"
+    (input)="filterCountry()"
+    placeholder="Search country here..."
+  />
+  <h3>All countries list</h3>
+  <div *ngIf="!filterName">
+    <article class="card" *ngFor="let country of countryList">
+      <h4>{{ country.name }}</h4>
+      <img
+        class="card_flag"
+        [src]="country.flagImage"
+        [alt]="country.name"
+        (click)="getDetail(country.id)"
+        (click)="scrollToTop()"
+      />
+    </article>
+  </div>
+  <div>
+    <article class="card" *ngFor="let results of filteredResults">
+      <h4>{{ results.name }}</h4>
+      <img
+        class="card_flag"
+        [src]="results.flagImage"
+        [alt]="results.name"
+        (click)="getDetail(results.id)"
+        (click)="scrollToTop()"
+      />
+    </article>
+  </div>
+</section>
+<a class="back" [routerLink]="['..']">Return to home page</a>

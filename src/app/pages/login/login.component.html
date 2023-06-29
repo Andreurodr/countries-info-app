@@ -1,0 +1,37 @@
+
+<h1>Log in the app</h1>
+<h2 class="succeed" *ngIf="loggedService.logged">Hello {{ this.userdbService.userDbArray[0].name }}. You are already logged in as {{ this.userdbService.userDbArray[0].username }}</h2>
+<section *ngIf="!loggedService.logged">
+<form
+  *ngIf="!validLogin"
+  class="form"
+  novalidate
+  (ngSubmit)="onSubmit()"
+  [formGroup]="loginForm"
+>
+  <fieldset class="form_fieldset">
+    <label for="email">Email</label>
+    <input
+      class="form_fieldset_input"
+      type="email"
+      id="email"
+      formControlName="email"
+    />
+  </fieldset>
+  <fieldset class="form_fieldset">
+    <label for="pass">Password</label>
+    <input
+      class="form_fieldset_input"
+      type="password"
+      id="password"
+      formControlName="password"
+    />
+  </fieldset>
+  <div *ngIf="!validLogin && submitted" class="error-message">
+    <p>Incorrect user or password</p>
+  </div>
+  <button class="form_button" type="submit">Log In</button>
+</form>
+</section>
+
+<a class="back" [routerLink]="['..']">Return to home page</a>

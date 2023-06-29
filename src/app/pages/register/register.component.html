@@ -1,0 +1,176 @@
+<h1>Register Form</h1>
+<form
+  *ngIf="!validRegister"
+  novalidate
+  (ngSubmit)="onSubmit()"
+  [formGroup]="registerForm"
+>
+  <fieldset class="form_fieldset">
+    <label for="name">Name</label>
+    <input
+      class="form_fieldset_input"
+      type="text"
+      id="name"
+      formControlName="name"
+    />
+    <div
+      class="error-message"
+      *ngIf="
+        !registerForm.get('name')?.valid &&
+        (registerForm.get('name')?.dirty || submitted)
+      "
+    >
+      <p *ngIf="registerForm.get('name')?.errors?.['required']">
+        Name is required
+      </p>
+      <p *ngIf="registerForm.get('name')?.errors?.['minlength']">
+        Name must include 3 characters at least
+      </p>
+      <p *ngIf="registerForm.get('lastname')?.errors?.['pattern']">
+        No special characters allowed
+      </p>
+    </div>
+  </fieldset>
+  <fieldset class="form_fieldset">
+    <label for="lastname">Lastname</label>
+    <input
+      class="form_fieldset_input"
+      type="text"
+      id="lastname"
+      formControlName="lastname"
+    />
+    <div
+      class="error-message"
+      *ngIf="
+        !registerForm.get('lastname')?.valid &&
+        (registerForm.get('lastname')?.dirty || submitted)
+      "
+    >
+      <p *ngIf="registerForm.get('lastname')?.errors?.['required']">
+        Lastname is required
+      </p>
+      <p *ngIf="registerForm.get('lastname')?.errors?.['minlength']">
+        Lastname must contain 3 characters at least
+      </p>
+      <p *ngIf="registerForm.get('lastname')?.errors?.['pattern']">
+        No special characters allowed
+      </p>
+    </div>
+  </fieldset>
+  <fieldset class="form_fieldset">
+    <label for="username">Username</label>
+    <input
+      class="form_fieldset_input"
+      type="text"
+      id="username"
+      formControlName="username"
+    />
+    <div
+      class="error-message"
+      *ngIf="
+        !registerForm.get('username')?.valid &&
+        (registerForm.get('username')?.dirty || submitted)
+      "
+    >
+      <p *ngIf="registerForm.get('username')?.errors?.['required']">
+        Username is required
+      </p>
+      <p *ngIf="registerForm.get('username')?.errors?.['minlength']">
+        Username must contain 3 characters at least
+      </p>
+      <p *ngIf="registerForm.get('username')?.errors?.['pattern']">
+        Only lowercase letters, numbers and _,- symbols allowed
+      </p>
+    </div>
+  </fieldset>
+  <fieldset class="form_fieldset">
+    <label for="email">Email</label>
+    <input
+      class="form_fieldset_input"
+      type="email"
+      id="email"
+      formControlName="email"
+    />
+    <div
+      class="error-message"
+      *ngIf="
+        !registerForm.get('email')?.valid &&
+        (registerForm.get('email')?.dirty || submitted)
+      "
+    >
+      <p *ngIf="registerForm.get('email')?.errors?.['required']">
+        Email is required
+      </p>
+      <p *ngIf="registerForm.get('email')?.errors?.['minlength']">
+        Email must contain 7 characters at least
+      </p>
+      <p *ngIf="registerForm.get('email')?.errors?.['pattern']">
+        Email format not allowed
+      </p>
+    </div>
+  </fieldset>
+  <fieldset class="form_fieldset">
+    <label for="pass">Password</label>
+    <input
+      class="form_fieldset_input"
+      type="password"
+      id="password"
+      formControlName="password"
+    />
+    <div
+      class="error-message"
+      *ngIf="
+        !registerForm.get('password')?.valid &&
+        (registerForm.get('password')?.dirty || submitted)
+      "
+    >
+      <p *ngIf="registerForm.get('password')?.errors?.['required']">
+        Password is required
+      </p>
+      <p *ngIf="registerForm.get('password')?.errors?.['pattern']">
+        Password must contain at least 8 characters: lowercase, uppercase,
+        numbers and special characters as: @#$%^&*()
+      </p>
+    </div>
+  </fieldset>
+  <fieldset class="form_fieldset">
+    <label for="passwordVerify">Repeat password</label>
+    <input
+      class="form_fieldset_input"
+      type="password"
+      id="passwordVerify"
+      formControlName="passwordVerify"
+    />
+    <p
+      class="error-message"
+      *ngIf="registerForm.get('passwordVerify')?.errors?.['mustMatch']"
+    >
+      Password does not match
+    </p>
+    <p
+      class="error-message"
+      *ngIf="registerForm.get('passwordVerify')?.errors?.['pattern']"
+    >
+      Password must contain at least 8 characters: lowercase, uppercase, numbers
+      and special characters as: @#$%^&*()
+    </p>
+    <div
+      class="error-message"
+      *ngIf="
+        !registerForm.get('password')?.valid &&
+        (registerForm.get('passwordVerify')?.dirty || submitted)
+      "
+    >
+      <p *ngIf="registerForm.get('passwordVerify')?.errors?.['required']">
+        Password verification is required
+      </p>
+    </div>
+  </fieldset>
+
+  <button class="form_button" type="submit">Register</button>
+</form>
+<h2 *ngIf="submitted && validRegister" class="correct-message">
+  <p>You are correctly registered</p>
+</h2>
+
+<a class="back" [routerLink]="['..']">Return to home page</a>
