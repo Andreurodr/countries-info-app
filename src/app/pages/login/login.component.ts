@@ -56,8 +56,6 @@ export class LoginComponent {
     ) {
       this.validLogin = true;
       this.loggedService.logged = true;
-    } else {
-      this.validLogin = false;
     }
   }
 }
